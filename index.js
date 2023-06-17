@@ -20,23 +20,39 @@ form.onsubmit = function(e){
     //access placeholder
     
     
-    //create new list item
+    //create new list and button item
     var liElement = document.createElement('li') 
-    var buttonElement = document.createElement('button') 
+    var buttonElement = document.createElement('button')
     
-    //assign input to list element and add to ul
-    liElement.textContent = (dataEl)
+    //assign dataEL to button  
+    buttonElement.textContent = (dataEl)
+
+    //appended button to the list item
+    liElement.appendChild(buttonElement)
+    console.log(liElement)
+    
+    //appended list item to list
     ulEl.appendChild(liElement)
+
+    console.log(ulEl)
+
+    //when button clicked, call function to add strike or remove
+    buttonElement.addEventListener('click', strike)
+    console.log(buttonElement.innerHTML + "inner HTML")
+
+    //add strike to completed task (or) delete already striked task to remove
+    function strike(){
+        if(buttonElement.style.textDecoration == 'line-through'){
+            this.parentElement.remove(liElement);
+        }
+        else{
+           //add strike \
+        console.log('striked')
+        buttonElement.style.textDecoration = 'line-through'
+        }
+    }
 
     //reset form field
     document.querySelector('input').value = ''
 
 }
-
-
-
-
-
-// var target = "";
-// var parent = "";
-// var page = "";

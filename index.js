@@ -1,6 +1,6 @@
 var form = document.getElementById('add-todo')
 
-//define variable for test code
+//define variable for test code compensation
 const todoList = document.getElementById('todo-list')
 
 form.onsubmit = function(e){
@@ -16,14 +16,14 @@ form.onsubmit = function(e){
       return
     }
 
-    //access To Do List
+    //record user item input
     var ulEl = document.getElementById('todo-list')
     
     //create new list and button item
     var liElement = document.createElement('li') 
     var buttonElement = document.createElement('button')
     
-    //assign dataEL to button  
+    //assign user input item value to button  
     buttonElement.textContent = (dataEl)
 
     //appended button to the list item
@@ -32,7 +32,7 @@ form.onsubmit = function(e){
     //appended list item to list
     ulEl.appendChild(liElement)
 
-    //when button clicked, call function to add strike or remove
+    //when list button is clicked, call function to add strike or remove per status
     buttonElement.addEventListener('click', strike)
 
     //add strike to completed task (or) delete already striked task to remove
